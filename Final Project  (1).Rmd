@@ -1,0 +1,182 @@
+---
+title: "Project"
+output: html_document
+date: "2023-04-26"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(readr)
+library(ggplot2)
+library("magrittr")
+library("tidyverse")
+library("MASS")
+library("leaps")
+library(vctrs)
+library(caret)
+```
+
+
+```{r }
+
+data <- read.csv("StudentsPerformance.csv",header=TRUE, sep=",")
+
+summary(data)
+View(StudentsPerformance)
+```
+
+```{r}
+sum(is.na(data))
+```
+
+
+```{r }
+
+hist(
+  data$math.score, col = "orange",
+  main = "Histogram of Math Score", 
+  xlab= "Math Score",
+  )
+```
+```{r}
+hist(
+  data$reading.score, col = "blue", 
+  breaks = 20,
+  main = "Histogram of Reading Score", 
+  xlab= "Reading Score",
+  )
+
+```
+
+```{r}
+hist(
+  data$writing.score, col = "red", 
+  breaks = 7, 
+  main = "Histogram of Writing Score", 
+  xlab= "Writing Score",
+  )
+```
+
+```{r}
+
+ggplot(data = data) +
+  geom_boxplot(mapping = aes(x =gender , y =math.score, fill=gender)) +
+  theme_classic()+
+  scale_color_viridis_d()+
+  coord_flip()
+```
+
+```{r}
+data$lunch<-factor(data$lunch)
+ggplot(data = data) +
+  geom_boxplot(mapping = aes(x =gender , y =math.score, fill=lunch)) +
+  theme_classic()+
+  scale_color_viridis_d()+
+  coord_flip()
+
+```
+```{r}
+data$lunch<-factor(data$lunch)
+ggplot(data = data) +
+  geom_boxplot(mapping = aes(x =gender , y =reading.score, fill=lunch)) +
+  theme_classic()+
+  scale_color_viridis_d()+
+  coord_flip()
+```
+
+```{r}
+data$lunch<-factor(data$lunch)
+ggplot(data = data) +
+  geom_boxplot(mapping = aes(x =gender , y =writing.score, fill=lunch)) +
+  theme_classic()+
+  scale_color_viridis_d()+
+  coord_flip()
+
+```
+
+```{r}
+
+ggplot(data, aes(x = data$math.score, fill = data$test.preparation.course)) +                       
+  geom_histogram(position = "identity", alpha = 1.2, bins = 50, color="black")
+```
+
+```{r}
+
+ggplot(data, aes(x = data$math.score, fill = data$test.preparation.course)) +                       
+  geom_histogram(position = "identity", alpha = 1.2, bins = 50, color="black")
+```
+
+
+```{r}
+
+ggplot(data, aes(x = data$math.score, fill = data$gender)) +                       
+  geom_histogram(position = "identity", alpha = 1.2, bins = 50, color="black")
+```
+
+```{r}
+
+ggplot(data=data) +
+ geom_point(mapping = aes(x=data$reading.score, y = data$lunch, colour = `gender`))
+```
+
+
+```{r}
+t.test(math.score ~ lunch, data= data, alternative = c("two.sided"), var.equal = TRUE, conf.level = 0.95)
+
+```
+1 = standard 0= free/reduced
+
+
+```{r}
+t.test(reading.score ~ lunch, data= data, alternative = c("two.sided"), var.equal = TRUE, conf.level = 0.95)
+
+```
+
+```{r}
+t.test(writing.score ~ lunch, data= data, alternative = c("two.sided"), var.equal = TRUE, conf.level = 0.95)
+
+```
+
+
+```{r}
+# Split the data into 80% training and 20% testing sets
+set.seed(123)
+train_index <- createDataPartition(data$math.score, p = 0.8, list = FALSE)
+train_data <- data[train_index, ]
+test_data <- data[-train_index, ]
+```
+
+
+```{r}
+model <- lm(math.score ~ gender+race.ethnicity +parental.level.of.education +lunch+test.preparation.course+reading.score + writing.score,data = data_math)
+summary(model)
+```
+
+```{r}
+predictions <- predict(model ,newdata = test_data)
+
+RMSE <- sqrt(mean((test_data$math.score - predictions) ^ 2))
+RMSE
+```
+
+```{r}
+# Create a null model 
+intercept_only <- lm(math.score ~ 1, data=data_math)
+# Create a full model
+all <- lm(math.score ~., data=data_math)
+# perform forward step-wise regression
+forward <- stepAIC (intercept_only, direction='forward',scope = formula(all))
+# view results of forward stepwise regression
+forward$anova
+# view final model
+summary(forward)
+```
+
+
+```{r}
+backward <- stepAIC (all, direction='backward')
+backward$anova
+summary(backward)
+
+```
+
