@@ -19,8 +19,7 @@
   
   <h2>Project Demo</h2>
  <img src="https://github.com/Mahendrak1999/Factor-Affecting-on-USA-Public-School-Students-Exam-Score/blob/773236c4b28fdf9184d57d7c2fe334edc4e6487a/Screenshot%202023-08-05%20at%2012.24.36%20AM.png">
-
-  
+<img src="https://github.com/Mahendrak1999/Factor-Affecting-on-USA-Public-School-Students-Exam-Score/blob/65640a9f4be04345bd8fbed7408a3c8150d1b939/Screenshot%202023-08-05%20at%2012.25.08%20AM.png"> 
   <h2>Technologies Used</h2>
   <ul>
     <li>R Programming Language</li>
@@ -28,7 +27,13 @@
     <li>Data Visualization</li>
     <li>Kaggle Public Datasets</li>
   </ul>
-  
+  <h2>How to Reproduce</h2>
+  <p>To reproduce the analysis and results, follow these steps:</p>
+  <ol>
+    <li>Clone the repository: <code>git clone https://github.com/your-username/project-repo.git</code></li>
+    <li>Install R and required packages as mentioned in the project documentation.</li>
+    <li>Run the R scripts and notebooks to perform the analysis.</li>
+  </ol>
  
 </body>
 </html>
