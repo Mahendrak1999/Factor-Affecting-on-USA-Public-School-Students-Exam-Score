@@ -18,7 +18,7 @@
   </ul>
   
   <h2>Project Demo</h2>
-  <!-- Add a link to a demo or relevant screenshots if available -->
+  <>
   
   <h2>Technologies Used</h2>
   <ul>
@@ -28,26 +28,6 @@
     <li>Kaggle Public Datasets</li>
   </ul>
   
-  <h2>How to Reproduce</h2>
-  <p>To reproduce the analysis and results, follow these steps:</p>
-  <ol>
-    <li>Clone the repository: <code>git clone (https://github.com/Mahendrak1999/Factor-Affecting-on-USA-Public-School-Students-Exam-Score.git)</code></li>
-    <li>Install R and required packages as mentioned in the project documentation.</li>
-    <li>Run the R scripts and notebooks to perform the analysis.</li>
-  </ol>
-  
-  <h2>Contributing</h2>
-  <p>If you want to contribute to the project, follow these steps:</p>
-  <ol>
-    <li>Fork the repository</li>
-    <li>Create a new branch: <code>git checkout -b feature-name</code></li>
-    <li>Make your changes</li>
-    <li>Commit your changes: <code>git commit -m 'Add some feature'</code></li>
-    <li>Push to the branch: <code>git push origin feature-name</code></li>
-    <li>Submit a pull request</li>
-  </ol>
-  
-  <h2>License</h2>
-  <p>This project is licensed under the MIT License - see the <a href="LICENSE">LICENSE</a> file for details.</p>
+ 
 </body>
 </html>
