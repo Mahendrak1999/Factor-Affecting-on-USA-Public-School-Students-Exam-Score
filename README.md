@@ -31,7 +31,7 @@
   <h2>How to Reproduce</h2>
   <p>To reproduce the analysis and results, follow these steps:</p>
   <ol>
-    <li>Clone the repository: <code>git clone https://github.com/your-username/project-repo.git</code></li>
+    <li>Clone the repository: <code>git clone (https://github.com/Mahendrak1999/Factor-Affecting-on-USA-Public-School-Students-Exam-Score.git)</code></li>
     <li>Install R and required packages as mentioned in the project documentation.</li>
     <li>Run the R scripts and notebooks to perform the analysis.</li>
   </ol>
