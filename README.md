@@ -18,7 +18,7 @@
   </ul>
   
   <h2>Project Demo</h2>
- <img src="">
+ <img src="https://github.com/Mahendrak1999/Factor-Affecting-on-USA-Public-School-Students-Exam-Score/blob/773236c4b28fdf9184d57d7c2fe334edc4e6487a/Screenshot%202023-08-05%20at%2012.24.36%20AM.png">
 
   
   <h2>Technologies Used</h2>
